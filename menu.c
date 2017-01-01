@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <graph.h>
+#include "snake.h"
 
 struct Config {
   int longueurGrille;
@@ -8,13 +9,11 @@ struct Config {
   int tailleSerpent;
 };
 
-
-void menu(struct Config*);
-void config(struct Config);
-void affichage(int, int);
-void affichageDimensions(int, int);
-void affichageDetails(int, int);
-
+//void menu(struct Config*);
+//void config(struct Config);
+//void affichage(int, int);
+//void affichageDimensions(int, int);
+//void affichageDetails(int, int);
 
 void menu(struct Config* Config) {
 
@@ -37,6 +36,7 @@ void menu(struct Config* Config) {
   while (!fin) {
     SourisCliquee();
     if ((_X) >= 85 && (_Y) >= 115 && (_X) < 223 && (_Y) < 132) { // Lancer la partie
+      fenetre((*Config));
       fin = 1;
     }
     if ((_X) >= 75 && (_Y) >= 165 && (_X) < 228 && (_Y) < 182) { // Configurer la partie

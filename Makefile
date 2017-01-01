@@ -22,7 +22,7 @@ menu.o : snake.h
 #CHAPITRE 4 : DEPENDANCES AVEC COMMANDES
 
 menu : $(OFILES)
-	$(CC) $(CFLAGS) -o menu $(OFILES)
+	$(CC) $(CFLAGS) -o menu $(OFILES) -lgraph
 
 #CHAPITRE 5 : NETTOYAGE DES FICHIERS GENERES
 

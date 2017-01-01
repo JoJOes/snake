@@ -1,19 +1,7 @@
 #include <stdio.h>
 #include <graph.h>
+#include "menu.h"
 #include "snake.h"
-
-struct Config {
-  int longueurGrille;
-  int hauteurGrille;
-  int nombrePastille;
-  int tailleSerpent;
-};
-
-//void menu(struct Config*);
-//void config(struct Config);
-//void affichage(int, int);
-//void affichageDimensions(int, int);
-//void affichageDetails(int, int);
 
 void menu(struct Config* Config) {
 
@@ -27,23 +15,23 @@ void menu(struct Config* Config) {
 
   EcrireTexte(100, 230, "Quitter le jeu", 1);
 
-  // DessinerRectangle(85, 115, 138, 17); 
-  // DessinerRectangle(75, 165, 153, 17);
-  // DessinerRectangle(100, 215, 103, 17);
- 
+  /*DessinerRectangle(85, 115, 138, 17); 
+    DessinerRectangle(75, 165, 153, 17);
+    DessinerRectangle(100, 215, 103, 17);*/
+
   int fin = 0;
 
   while (!fin) {
     SourisCliquee();
-    if ((_X) >= 85 && (_Y) >= 115 && (_X) < 223 && (_Y) < 132) { // Lancer la partie
+    if ((_X) >= 85 && (_Y) >= 115 && (_X) < 223 && (_Y) < 132) { /* Lancer la partie */
       fenetre((*Config));
       fin = 1;
     }
-    if ((_X) >= 75 && (_Y) >= 165 && (_X) < 228 && (_Y) < 182) { // Configurer la partie
+    if ((_X) >= 75 && (_Y) >= 165 && (_X) < 228 && (_Y) < 182) { /* Configurer la partie */
       fin = 1;
       config((*Config));
     }
-    if ((_X) >= 100 && (_Y) >= 215 && (_X) < 203 && (_Y) < 232) { // Quitter le game
+    if ((_X) >= 100 && (_Y) >= 215 && (_X) < 203 && (_Y) < 232) { /* Quitter le game */
       fin = 1;
     }
   }
@@ -84,7 +72,7 @@ void config(struct Config Config) {
 
   while (!fin) {
     SourisCliquee();
-    if ((_X) >= 80 && (_Y) >= 125 && (_X) < 87 && (_Y) < 132) { // longueur ++
+    if ((_X) >= 80 && (_Y) >= 125 && (_X) < 87 && (_Y) < 132) { /* longueur ++ */
       if (Config.longueurGrille >= 99) {}
       else {
 	Config.longueurGrille++;
@@ -93,13 +81,13 @@ void config(struct Config Config) {
 	_Y = 0;
       }
     }
-    if ((_X) >= 80 && (_Y) >= 138 && (_X) < 87 && (_Y) < 145) { // longueur --
+    if ((_X) >= 80 && (_Y) >= 138 && (_X) < 87 && (_Y) < 145) { /* longueur -- */
       Config.longueurGrille--;
       affichage(Config.longueurGrille, 1);
       _X = 0;
       _Y = 0;
     }
-    if ((_X) >= 155 && (_Y) >= 125 && (_X) < 162 && (_Y) < 132) { // hauteur ++
+    if ((_X) >= 155 && (_Y) >= 125 && (_X) < 162 && (_Y) < 132) { /* hauteur ++ */
       if (Config.hauteurGrille >= 99) {}
       else {
 	Config.hauteurGrille++;
@@ -108,19 +96,19 @@ void config(struct Config Config) {
 	_Y = 0;
       }
     }
-    if ((_X) >= 155 && (_Y) >= 138 && (_X) < 162 && (_Y) < 145) { // hauteur --
+    if ((_X) >= 155 && (_Y) >= 138 && (_X) < 162 && (_Y) < 145) { /* hauteur -- */
       Config.hauteurGrille--;
       affichage(Config.hauteurGrille, 2);
       _X = 0;
       _Y = 0;
     }
-    if ((_X) >= 120 && (_Y) >= 190 && (_X) < 127 && (_Y) < 197) { // pastille ++
+    if ((_X) >= 120 && (_Y) >= 190 && (_X) < 127 && (_Y) < 197) { /* pastille ++ */
       Config.nombrePastille++;
       affichage(Config.nombrePastille, 3);
       _X = 0;
       _Y = 0;
     }
-    if ((_X) >= 120 && (_Y) >= 203 && (_X) < 127 && (_Y) < 210) { // pastille --
+    if ((_X) >= 120 && (_Y) >= 203 && (_X) < 127 && (_Y) < 210) { /* pastille -- */
       if (Config.nombrePastille <= 5) {}
       else {
 	Config.nombrePastille--;
@@ -129,13 +117,13 @@ void config(struct Config Config) {
 	_Y = 0;
       }
     }
-    if ((_X) >= 120 && (_Y) >= 255 && (_X) < 127 && (_Y) < 262) { // serpent ++
+    if ((_X) >= 120 && (_Y) >= 255 && (_X) < 127 && (_Y) < 262) { /* serpent ++ */
       Config.tailleSerpent++;
       affichage(Config.tailleSerpent, 4);
       _X = 0;
       _Y = 0;
     }
-    if ((_X) >= 120 && (_Y) >= 268 && (_X) < 127 && (_Y) < 275) { // serpent --
+    if ((_X) >= 120 && (_Y) >= 268 && (_X) < 127 && (_Y) < 275) { /* serpent -- */
       if (Config.tailleSerpent <= 5) {}
       else {
 	Config.tailleSerpent--;
@@ -144,7 +132,7 @@ void config(struct Config Config) {
 	_Y = 0;
       }
     }
-    if ((_X) >= 81 && (_Y) >= 300 && (_X) < 220 && (_Y) < 317) { // Revenir au menu
+    if ((_X) >= 81 && (_Y) >= 300 && (_X) < 220 && (_Y) < 317) { /* Revenir au menu */
       fin = 1;
       ChoisirCouleurDessin(CouleurParNom("white"));
       RemplirRectangle(0, 0, 300, 350);
@@ -239,7 +227,7 @@ void affichageDetails(int entier, int choix) {
   }
 }
 
-void main() {
+int main() {
   struct Config Config;
   Config.longueurGrille = 60;
   Config.hauteurGrille = 40;
@@ -252,4 +240,6 @@ void main() {
   menu(&Config);
   
   FermerGraphique();
+
+  return 0;
 }

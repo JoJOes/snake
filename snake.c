@@ -1,6 +1,8 @@
 #include<stdlib.h>
 #include<graph.h>
 #include<stdio.h>
+#include "menu.h"
+#include "snake.h"
 
 /*enum e_numero{1,2,3,4,5};
  enum e_etat{};
